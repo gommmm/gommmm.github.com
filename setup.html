@@ -24,22 +24,22 @@
           <a href="index.html">매뉴얼</a>
         </div>
         <ul class="top vertical menu">
-          <li class="current item"><a href="#">설치하기</a></li>
+          <li class="current item"><a href="setup.html">설치하기</a></li>
           <li class="group">
            <a href="#">기능설명</a>
-            <ul class="sub vertical menu">
-              <li class="item"><a href="#">게시판 기능</a></li>
-              <li class="item"><a href="#">관리자 기능</a></li>
-              <li class="item"><a href="#">로그인 기능</a></li>
-              <li class="item"><a href="#">쪽지 기능</a></li>
-              <li class="item"><a href="#">1:1 대화 기능</a></li>
+            <ul class="sub vertical menu" style="display:none">
+              <li class="item"><a href="board.html">게시판 기능</a></li>
+              <li class="item"><a href="admin.html">관리자 기능</a></li>
+              <li class="item"><a href="login.html">로그인 기능</a></li>
+              <li class="item"><a href="message.html">쪽지 기능</a></li>
+              <li class="item"><a href="chat.html">1:1 대화 기능</a></li>
             </ul>
           </li>
         </ul>
       </div>
       <div class="section small-12 medium-10 large-10 columns">
         <div class="content">
-          <h3>매뉴얼</h3>
+          <h3>설치하기</h3>
         </div>
       </div>
     </div>
@@ -49,9 +49,10 @@
     // html dom 이 다 로딩된 후 실행된다.
     $(document).ready(function(){
     // memu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-      $(".group>a").on("click", function() {
+      $(".group>a").on("click", function(e) {
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
+        e.preventDefault();
         $(".sub").toggle();
       });
     });

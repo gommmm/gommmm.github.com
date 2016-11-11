@@ -25,10 +25,10 @@
         </div>
         <ul class="top vertical menu">
           <li class="item"><a href="setup.html">설치하기</a></li>
-          <li class="group">
+          <li class="current group">
            <a href="#">기능설명</a>
-            <ul class="sub vertical menu" style="display:none">
-              <li class="item"><a href="board.html">게시판 기능</a></li>
+            <ul class="sub vertical menu">
+              <li class="current item"><a href="board.html">게시판 기능</a></li>
               <li class="item"><a href="admin.html">관리자 기능</a></li>
               <li class="item"><a href="login.html">로그인 기능</a></li>
               <li class="item"><a href="message.html">쪽지 기능</a></li>
@@ -39,40 +39,7 @@
       </div>
       <div class="section small-12 medium-10 large-10 columns">
         <div class="content">
-          <h3>매뉴얼</h3>
-          <p>
-          제공하는 기능목록 CodeIgniter Features
-특징만으로는 어플리케이션이 얼마나 쓰기좋고 똑똑하게 디자인되어있는지 알지못합니다. 특징은 코드의 품질이나 성능, 실용적 보안등을 판단하는데도 별 도움이 못됩니다. 어플리케이션이 좋은지 어떤지 알아보는 유일한 방법은 써보는것입니다. CodeIgniter를 설치하는것은 거의 애들 장난만큼 쉽기 때문에 직접 써보실것을 권장드립니다.
-
-모델-뷰-컨트롤러 기반
-엄청 가벼움
-여러플렛폼을 지원하는 완벽한 데이터베이스 클래스들.
-쿼리 빌더 지원
-폼과 데이터의 검증
-보안과 XSS 필터링
-세션 관리
-Email 전송클래스. 첨부파일지원.HTML/Text 지원.다양한프로토콜 지원(sendmail, SMTP, and Mail) 등.
-이미지 관리 라이브러리(자르기,크기조절,돌리기 등).GD , ImageMagick, NetPBM 지원
-파일업로드(File Uploading Class)
-FTP 클래스
-로컬라이즈
-페이지네이션
-데이터 암호화
-벤치마킹
-전체 페이지 캐싱
-에러로깅
-성능측정
-달력(Calendaring Class)
-User Agent 클래스
-Zip 인코딩(Zip Encoding Class)
-템플릿엔진 클래스
-트랙백(Trackback Class)
-XML-RPC Library
-단위테스트(Unit Testing Class)
-검색엔진에 색인되기 좋은 URLs
-유연한 URI 라우팅
-후킹,클래스확장 지원
-방대한 헬퍼 라이브러리</p>
+          <h3>게시판 기능</h3>
         </div>
       </div>
     </div>
@@ -86,10 +53,8 @@ XML-RPC Library
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
         e.preventDefault();
-        $(".sub").toggle();
       });
     });
   </script>
-
-  </body>
+</body>
 </html>
