@@ -13,6 +13,7 @@
   crossorigin="anonymous"></script>
     <title>매뉴얼</title>
     <style>
+        ol li p {word-break:break-all;}
     </style>
   </head>
 
@@ -25,14 +26,29 @@
       </div>
       <ul class="top vertical menu">
         <li class="current item"><a href="setup.html">설치하기</a></li>
+        <li class="item"><a href="function.html">주요기능</a></li>
         <li class="group">
-         <a href="#">기능설명</a>
+         <a href="#">페이지 설명</a>
           <ul class="sub vertical menu" style="display:none">
-            <li class="item"><a href="board.html">게시판 기능</a></li>
-            <li class="item"><a href="admin.html">관리자 기능</a></li>
-            <li class="item"><a href="login.html">로그인 기능</a></li>
-            <li class="item"><a href="message.html">쪽지 기능</a></li>
-            <li class="item"><a href="chat.html">1:1 대화 기능</a></li>
+            <li class="item"><a href="board.html">일반게시판</a></li>
+            <li class="item"><a href="image_board.html">사진게시판</a></li>
+            <li class="item"><a href="chat.html">1:1 대화</a></li>
+            <li class="item"><a href="findid.html">아이디 찾기</a></li>
+            <li class="item"><a href="menu.html">관리자-메뉴관리</a></li>
+            <li class="item"><a href="member.html">관리자-멤버관리</a></li>
+          </ul>
+        </li>
+        <li class="group">
+         <a href="#">테이블 구조</a>
+          <ul class="sub vertical menu" style="display:none">
+            <li class="item"><a href="table.html">전체 테이블</a></li>
+            <li class="item"><a href="bc_table.html">board_config(게시판 설정)</a></li>
+            <li class="item"><a href="board_table.html">board(게시물)</a></li>
+            <li class="item"><a href="cmt_table.html">comment(댓글)</a></li>
+            <li class="item"><a href="file_table.html">file(파일)</a></li>
+            <li class="item"><a href="member_table.html">member(회원)</a></li>
+            <li class="item"><a href="msg_table.html">message(쪽지)</a></li>
+            <li class="item"><a href="chat_table.html">chat(1:1대화)</a></li>
           </ul>
         </li>
       </ul>
@@ -40,31 +56,64 @@
     <div class="section small-12 medium-10 large-10 columns">
       <div class="content">
         <h3>설치하기</h3>
+        <ol>
+          <li><strong>보드 설치 소스를 github 페이지에 들어가서 다운로드 받습니다.</strong></li>
+          <div class="detail">
+            <a href="https://github.com/gommmm/board">github 페이지</a><br />
+            github 페이지에서
+            <img src="./images/download.png" style="width: 180px; height:auto;">
+            를 클릭하고
+            <img src="./images/download2.png" style="width: 180px; height:auto;">
+            클릭
+          </div>
+
+          <li><strong>다운받은 파일을 원하는 웹서버 폴더에 압축풀기</strong></li>
+          <li><strong>리눅스나 맥에 서버를 두고 있으면 최상위 폴더의 파일권한을 707이나 777로 변경</strong></li>
+          <li><strong>압축을 푼 폴더가 예를 들어 board이면</strong></li>
+          <div class="callout small">
+            <ol>
+              <li>
+                <p>application/config/constants.php 90번째 줄 SUB_DIRECTORY 상수에 경로 추가</p>
+                <p>
+                  <code>
+                    define('SUB_DIRECTORY', '') => define('SUB_DIRECTORY', '/board')
+                  </code>
+                </p>
+              </li>
+              <li>
+                <p>resource/plugin/seditor/sample/photo_uploader/file_uploader_html5.php 31번째 줄 변수에 경로 추가</p>
+                <p>
+                  <code>
+                    $sub = '' => $sub = '/board'
+                  </code>
+                </p>
+              </li>
+              <li>
+                <p>resource/plugin/seditor/sample/photo_uploader/attach_photo.js 336번째 줄 경로 추가</p>
+                <p>
+                  <code>
+                    var sub = "" => var sub = "/board"
+                  </code>
+                </p>
+              </li>
+            </ol>
+          </div>
+          <li><strong>저장하고 설치하고자 하시는 웹사이트 주소를 입력하면 설치하라는 페이지가 나오는데 설치를 눌러줍니다.</strong></li>
+          <li><strong>그러면 데이터베이스 정보 및 관리자 정보를 입력하는 폼이 나오는데 입력해줍니다.</strong></li>
+          <li><strong>데이터베이스 정보를 올바르게 입력하면 설치가 완료됐다는 화면이 나오고 설치가 완료됩니다.</strong></li>
+          <li><strong>이제 모두 설치를 완료했습니다. 메인페이지로 링크를 눌러줍니다.</strong></li>
+        </ol>
+        <!--
         <p>
           최상위 폴더의 권한을 777 또는 707로 설정한다.
 
           폴더를 생성하고 그 안에 파일을 넣을 시, 예를 들어 board 폴더 안에 파일들을 넣을 때
 
-          application/config/constants.php 90번째 줄 SUB_DIRECTORY 상수에 경로 추가
-          <code>
-          define('SUB_DIRECTORY', '/board');
-          </code>
-          .htaccess 7번째 줄 index.php 앞 경로 추가
-          <code>
-          RewriteRule ^(.*)$ /board/index.php/$1 [L]
-          </code>
-          resource/plugin/seditor/sample/photo_uploader/file_uploader_html5.php 31번째 줄 변수에 경로 추가
-          <code>
-          $sub = '/board';
-          </code>
-          resource/plugin/seditor/sample/photo_uploader/attach_photo.js 336번째 줄 경로 추가
-          <code>
-          var sub = "/board";
-          </code>
-        </p>
+
 
         <img src="./images/install.png" style="width: 20%; height:auto;">
         <img src="./images/installForm.png" style="width: 33%; height:auto;">
+        -->
       </div>
     </div>
   </div>
@@ -77,7 +126,10 @@
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
         e.preventDefault();
-        $(this).parent().find(".sub").toggle();
+        var t = $(this).parent();
+
+        if(t.hasClass("current") !== true)
+          t.find(".sub").toggle();
       });
     });
   </script>

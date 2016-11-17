@@ -37,14 +37,14 @@
             <li class="item"><a href="member.html">관리자-멤버관리</a></li>
           </ul>
         </li>
-        <li class="group">
+        <li class="current group">
          <a href="#">테이블 구조</a>
-          <ul class="sub vertical menu" style="display:none">
+          <ul class="sub vertical menu">
             <li class="item"><a href="table.html">전체 테이블</a></li>
             <li class="item"><a href="bc_table.html">board_config(게시판 설정)</a></li>
             <li class="item"><a href="board_table.html">board(게시물)</a></li>
             <li class="item"><a href="cmt_table.html">comment(댓글)</a></li>
-            <li class="item"><a href="file_table.html">file(파일)</a></li>
+            <li class="current item"><a href="file_table.html">file(파일)</a></li>
             <li class="item"><a href="member_table.html">member(회원)</a></li>
             <li class="item"><a href="msg_table.html">message(쪽지)</a></li>
             <li class="item"><a href="chat_table.html">chat(1:1대화)</a></li>
@@ -54,7 +54,44 @@
     </div>
     <div class="section small-12 medium-10 large-10 columns">
       <div class="content">
-        <h3>매뉴얼</h3>
+        <h3>file 테이블</h3>
+        <p>파일 테이블입니다.</p>
+        <table>
+          <thead>
+            <tr>
+              <th width="200">컬럼명</th>
+              <th width="150">타입</th>
+              <th width="250">설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td>int</td>
+              <td>파일 번호</td>
+            </tr>
+            <tr>
+              <td>b_idx</td>
+              <td>int</td>
+              <td>게시물 번호</td>
+            </tr>
+            <tr>
+              <td>filename</td>
+              <td>varchar</td>
+              <td>파일 이름</td>
+            </tr>
+            <tr>
+              <td>filesize</td>
+              <td>int</td>
+              <td>파일 크기</td>
+            </tr>
+            <tr>
+              <td>filetype</td>
+              <td>varchar</td>
+              <td>파일 타입</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -67,7 +104,10 @@
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
         e.preventDefault();
-        $(this).parent().find(".sub").toggle();
+        var t = $(this).parent();
+
+        if(t.hasClass("current") !== true)
+          t.find(".sub").toggle();
       });
     });
   </script>

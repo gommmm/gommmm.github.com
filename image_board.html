@@ -25,21 +25,36 @@
       </div>
       <ul class="top vertical menu">
         <li class="item"><a href="setup.html">설치하기</a></li>
+        <li class="item"><a href="function.html">주요기능</a></li>
         <li class="current group">
-         <a href="#">기능설명</a>
+         <a href="#">페이지 설명</a>
           <ul class="sub vertical menu">
-            <li class="item"><a href="board.html">게시판 기능</a></li>
-            <li class="current item"><a href="admin.html">관리자 기능</a></li>
-            <li class="item"><a href="login.html">로그인 기능</a></li>
-            <li class="item"><a href="message.html">쪽지 기능</a></li>
-            <li class="item"><a href="chat.html">1:1 대화 기능</a></li>
+            <li class="item"><a href="board.html">일반게시판</a></li>
+            <li class="current item"><a href="image_board.html">사진게시판</a></li>
+            <li class="item"><a href="chat.html">1:1 대화</a></li>
+            <li class="item"><a href="findid.html">아이디 찾기</a></li>
+            <li class="item"><a href="menu.html">관리자-메뉴관리</a></li>
+            <li class="item"><a href="member.html">관리자-멤버관리</a></li>
+          </ul>
+        </li>
+        <li class="group">
+         <a href="#">테이블 구조</a>
+          <ul class="sub vertical menu" style="display:none">
+            <li class="item"><a href="table.html">전체 테이블</a></li>
+            <li class="item"><a href="bc_table.html">board_config(게시판 설정)</a></li>
+            <li class="item"><a href="board_table.html">board(게시물)</a></li>
+            <li class="item"><a href="cmt_table.html">comment(댓글)</a></li>
+            <li class="item"><a href="file_table.html">file(파일)</a></li>
+            <li class="item"><a href="member_table.html">member(회원)</a></li>
+            <li class="item"><a href="msg_table.html">message(쪽지)</a></li>
+            <li class="item"><a href="chat_table.html">chat(1:1대화)</a></li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="section small-12 medium-10 large-10 columns">
       <div class="content">
-        <h3>관리자 기능</h3>
+        <h3>게시판 기능</h3>
       </div>
     </div>
   </div>
@@ -52,6 +67,10 @@
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
         e.preventDefault();
+        var t = $(this).parent();
+
+        if(t.hasClass("current") !== true)
+          t.find(".sub").toggle();
       });
     });
   </script>

@@ -1,10 +1,19 @@
 .wrap {
-  height: 100%;
+  display:flex;
+  flex-wrap : wrap;
+  min-height: 100%;
 }
 
 .nav {
-  height: 100%;
+  height:auto;
+  display:flex;
+  flex-direction: column;
   background-color: #343131;
+}
+
+.section {
+  display:flex;
+  flex-direction: column;
 }
 
 .home {

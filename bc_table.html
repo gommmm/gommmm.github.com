@@ -37,11 +37,11 @@
             <li class="item"><a href="member.html">관리자-멤버관리</a></li>
           </ul>
         </li>
-        <li class="group">
+        <li class="current group">
          <a href="#">테이블 구조</a>
-          <ul class="sub vertical menu" style="display:none">
+          <ul class="sub vertical menu">
             <li class="item"><a href="table.html">전체 테이블</a></li>
-            <li class="item"><a href="bc_table.html">board_config(게시판 설정)</a></li>
+            <li class="current item"><a href="bc_table.html">board_config(게시판 설정)</a></li>
             <li class="item"><a href="board_table.html">board(게시물)</a></li>
             <li class="item"><a href="cmt_table.html">comment(댓글)</a></li>
             <li class="item"><a href="file_table.html">file(파일)</a></li>
@@ -54,7 +54,69 @@
     </div>
     <div class="section small-12 medium-10 large-10 columns">
       <div class="content">
-        <h3>매뉴얼</h3>
+        <h3>board_config 테이블</h3>
+        <p>게시판 설정 테이블입니다.</p>
+        <table>
+          <thead>
+            <tr>
+              <th width="200">컬럼명</th>
+              <th width="150">타입</th>
+              <th width="250">설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>bc_idx</td>
+              <td>int</td>
+              <td>메뉴 번호</td>
+            </tr>
+            <tr>
+              <td>bc_code</td>
+              <td>varchar</td>
+              <td>URL상에 들어가는 코드명</td>
+            </tr>
+            <tr>
+              <td>bc_name</td>
+              <td>varchar</td>
+              <td>메뉴 이름</td>
+            </tr>
+            <tr>
+              <td>bc_read_level</td>
+              <td>tinyint</td>
+              <td>읽기 레벨</td>
+            </tr>
+            <tr>
+              <td>bc_write_level</td>
+              <td>tinyint</td>
+              <td>쓰기 레벨</td>
+            </tr>
+            <tr>
+              <td>bc_comment_level</td>
+              <td>tinyint</td>
+              <td>댓글 레벨</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>char</td>
+              <td>메뉴 타입</td>
+            </tr>
+            <tr>
+              <td>indent</td>
+              <td>tinyint</td>
+              <td>메뉴 들여쓰기 여부</td>
+            </tr>
+            <tr>
+              <td>seq</td>
+              <td>integrity</td>
+              <td>메뉴 순서</td>
+            </tr>
+            <tr>
+              <td>is_group</td>
+              <td>tinyint</td>
+              <td>메뉴 그룹 여부</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -67,7 +129,10 @@
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
         e.preventDefault();
-        $(this).parent().find(".sub").toggle();
+        var t = $(this).parent();
+
+        if(t.hasClass("current") !== true)
+          t.find(".sub").toggle();
       });
     });
   </script>

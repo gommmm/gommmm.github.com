@@ -37,13 +37,13 @@
             <li class="item"><a href="member.html">관리자-멤버관리</a></li>
           </ul>
         </li>
-        <li class="group">
+        <li class="current group">
          <a href="#">테이블 구조</a>
-          <ul class="sub vertical menu" style="display:none">
+          <ul class="sub vertical menu">
             <li class="item"><a href="table.html">전체 테이블</a></li>
             <li class="item"><a href="bc_table.html">board_config(게시판 설정)</a></li>
             <li class="item"><a href="board_table.html">board(게시물)</a></li>
-            <li class="item"><a href="cmt_table.html">comment(댓글)</a></li>
+            <li class="current item"><a href="cmt_table.html">comment(댓글)</a></li>
             <li class="item"><a href="file_table.html">file(파일)</a></li>
             <li class="item"><a href="member_table.html">member(회원)</a></li>
             <li class="item"><a href="msg_table.html">message(쪽지)</a></li>
@@ -54,7 +54,79 @@
     </div>
     <div class="section small-12 medium-10 large-10 columns">
       <div class="content">
-        <h3>매뉴얼</h3>
+        <h3>comment 테이블</h3>
+        <p>댓글 테이블입니다.</p>
+        <table>
+          <thead>
+            <tr>
+              <th width="200">컬럼명</th>
+              <th width="150">타입</th>
+              <th width="250">설명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>c_idx</td>
+              <td>int</td>
+              <td>댓글 번호</td>
+            </tr>
+            <tr>
+              <td>b_idx</td>
+              <td>int</td>
+              <td>게시물 번호</td>
+            </tr>
+            <tr>
+              <td>m_id</td>
+              <td>varchar</td>
+              <td>작성자 아이디</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>varchar</td>
+              <td>작성자 닉네임</td>
+            </tr>
+            <tr>
+              <td>c_regdate</td>
+              <td>datetime</td>
+              <td>댓글 작성일자</td>
+            </tr>
+            <tr>
+              <td>cp_idx</td>
+              <td>int</td>
+              <td>최상위 댓글의 순서</td>
+            </tr>
+            <tr>
+              <td>c_seq</td>
+              <td>int</td>
+              <td>하나의 최상위 댓글부터 하위 순서까지의 순서</td>
+            </tr>
+            <tr>
+              <td>content</td>
+              <td>text</td>
+              <td>댓글 내용(태그 포함)</td>
+            </tr>
+            <tr>
+              <td>s_content</td>
+              <td>text</td>
+              <td>댓글 내용(태그 미포함)</td>
+            </tr>
+            <tr>
+              <td>p_idx</td>
+              <td>int</td>
+              <td>부모 댓글 번호</td>
+            </tr>
+            <tr>
+              <td>cp_name</td>
+              <td>char</td>
+              <td>부모 댓글 작성자 닉네임</td>
+            </tr>
+            <tr>
+              <td>deleted</td>
+              <td>int</td>
+              <td>댓글 삭제 여부</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -67,7 +139,10 @@
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
         e.preventDefault();
-        $(this).parent().find(".sub").toggle();
+        var t = $(this).parent();
+
+        if(t.hasClass("current") !== true)
+          t.find(".sub").toggle();
       });
     });
   </script>

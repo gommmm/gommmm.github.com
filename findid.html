@@ -26,13 +26,13 @@
       <ul class="top vertical menu">
         <li class="item"><a href="setup.html">설치하기</a></li>
         <li class="item"><a href="function.html">주요기능</a></li>
-        <li class="group">
+        <li class="current group">
          <a href="#">페이지 설명</a>
-          <ul class="sub vertical menu" style="display:none">
+          <ul class="sub vertical menu">
             <li class="item"><a href="board.html">일반게시판</a></li>
             <li class="item"><a href="image_board.html">사진게시판</a></li>
             <li class="item"><a href="chat.html">1:1 대화</a></li>
-            <li class="item"><a href="findid.html">아이디 찾기</a></li>
+            <li class="current item"><a href="findid.html">아이디 찾기</a></li>
             <li class="item"><a href="menu.html">관리자-메뉴관리</a></li>
             <li class="item"><a href="member.html">관리자-멤버관리</a></li>
           </ul>
@@ -54,7 +54,7 @@
     </div>
     <div class="section small-12 medium-10 large-10 columns">
       <div class="content">
-        <h3>매뉴얼</h3>
+        <h3>게시판 기능</h3>
       </div>
     </div>
   </div>
@@ -67,10 +67,12 @@
       // 현재 클릭한 태그가 a 이기 때문에
       // a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
         e.preventDefault();
-        $(this).parent().find(".sub").toggle();
+        var t = $(this).parent();
+
+        if(t.hasClass("current") !== true)
+          t.find(".sub").toggle();
       });
     });
   </script>
-
-  </body>
+</body>
 </html>
