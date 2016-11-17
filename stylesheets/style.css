@@ -5,7 +5,6 @@
 }
 
 .nav {
-  height:auto;
   display:flex;
   flex-direction: column;
   background-color: #343131;
@@ -85,8 +84,20 @@ li:not(.current)>a {
 }
 
 @media screen and (max-width: 640px) {
+  body {
+    overflow-y : scroll;
+  }
+  
+  .wrap {
+    display : block;
+  }
   .nav {
+    display : block;
     height: auto;
+  }
+
+  .section {
+    display : block;
   }
 }
 
