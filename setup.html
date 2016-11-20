@@ -27,11 +27,14 @@
       <ul class="top vertical menu">
         <li class="current item"><a href="setup.html">설치하기</a></li>
         <li class="item"><a href="function.html">주요기능</a></li>
+        <li class="item"><a href="directory.html">디렉터리 구조</a></li>
         <li class="group">
          <a href="#">페이지 설명</a>
           <ul class="sub vertical menu" style="display:none">
             <li class="item"><a href="board.html">일반게시판</a></li>
             <li class="item"><a href="image_board.html">사진게시판</a></li>
+            <li class="item"><a href="write.html">글쓰기</a></li>
+            <li class="item"><a href="view.html">글보기</a></li>
             <li class="item"><a href="chat.html">1:1 대화</a></li>
             <li class="item"><a href="findid.html">아이디 찾기</a></li>
             <li class="item"><a href="menu.html">관리자-메뉴관리</a></li>
@@ -56,6 +59,13 @@
     <div class="section small-12 medium-10 large-10 columns">
       <div class="content">
         <h3>설치하기</h3>
+        <h5>설치 요구조건</h5>
+        <ol>
+          <li>PHP 5.3.7 이상 필요</li>
+          <li>GD Library 2.0 이상 필요</li>
+          <li>Node.js 필요</li>
+        </ol>
+        <h5>설치 방법</h5>
         <ol>
           <li><strong>보드 설치 소스를 github 페이지에 들어가서 다운로드 받습니다.</strong></li>
           <div class="detail">
@@ -68,6 +78,7 @@
           </div>
 
           <li><strong>다운받은 파일을 원하는 웹서버 폴더에 압축풀기</strong></li>
+          <li><strong>node 폴더에서 server.js 가동</strong></li>
           <li><strong>리눅스나 맥에 서버를 두고 있으면 최상위 폴더의 파일권한을 707이나 777로 변경</strong></li>
           <li><strong>압축을 푼 폴더가 예를 들어 board이면</strong></li>
           <div class="callout small">
@@ -84,7 +95,7 @@
                 <p>resource/plugin/seditor/sample/photo_uploader/file_uploader_html5.php 31번째 줄 변수에 경로 추가</p>
                 <p>
                   <code>
-                    $sub = '' => $sub = '/board'
+                    $sub = '/board';
                   </code>
                 </p>
               </li>

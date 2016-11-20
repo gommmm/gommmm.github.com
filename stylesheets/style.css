@@ -87,10 +87,11 @@ li:not(.current)>a {
   body {
     overflow-y : scroll;
   }
-  
+
   .wrap {
     display : block;
   }
+
   .nav {
     display : block;
     height: auto;
